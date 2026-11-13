@@ -23,19 +23,19 @@ export function IphoneFrame({ image }: FrameProps) {
   return (
     <div
       className={cn(
-        "relative flex max-h-full max-w-[300px] flex-col overflow-hidden rounded-[44px] border-[10px] border-neutral-950 bg-neutral-950 ring-1 ring-white/20 transition-all",
+        "relative flex aspect-[9/19.5] h-[460px] max-h-full w-auto flex-col overflow-hidden rounded-[44px] border-[10px] border-neutral-950 bg-neutral-950 ring-1 ring-white/20 transition-all",
         SHADOW_CLASSES[shadow]
       )}
     >
-      {/* Notch falso (div preta absoluta no topo) */}
-      <div className="pointer-events-none absolute left-1/2 top-2.5 z-20 h-5 w-24 -translate-x-1/2 rounded-full bg-black ring-1 ring-white/10" />
+      {/* Dynamic Island / Notch falso no topo */}
+      <div className="pointer-events-none absolute left-1/2 top-2.5 z-20 h-4 w-[36%] max-w-[96px] -translate-x-1/2 rounded-full bg-black ring-1 ring-white/10" />
 
-      <div className="overflow-hidden rounded-[34px] bg-black">
+      <div className="h-full w-full overflow-hidden rounded-[34px] bg-black">
         <img
           src={image}
           alt="iPhone Mockup"
           style={{ borderRadius: `${borderRadius}px` }}
-          className="block max-h-[460px] w-full object-cover transition-all"
+          className="block h-full w-full object-cover transition-all"
         />
       </div>
     </div>
