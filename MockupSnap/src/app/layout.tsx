@@ -8,6 +8,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "MockupSnap — Gerador de Mockups para Redes Sociais",
   description: "Crie mockups elegantes de capturas de tela para redes sociais no navegador.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({

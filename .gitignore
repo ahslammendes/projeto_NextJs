@@ -1,17 +1,17 @@
 # Dependências
-/node_modules
-/.pnp
+node_modules/
+.pnp
 .pnp.js
 .yarn/install-state.gz
 
 # Build e cache do Next.js
-/.next/
-/out/
-/build
+.next/
+out/
+build/
 next-env.d.ts
 
 # Testes e cobertura
-/coverage
+coverage/
 
 # Variáveis de ambiente locais e segredos
 .env

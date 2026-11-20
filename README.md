@@ -43,44 +43,50 @@ Diferente de ferramentas pesadas de design, o **MockupSnap** foca em um fluxo de
 
 ## 📂 Organização das Pastas (`MockupSnap`)
 
-O projeto está organizado diretamente dentro da pasta raiz **`MockupSnap/`** seguindo o padrão modular do Next.js 14:
+O repositório possui a pasta **`MockupSnap/`** configurada como **Root Directory** do projeto Next.js 14 para deploy na **Vercel**:
 
 ```text
-MockupSnap/
-├── app/
-│   ├── globals.css                 # Estilos globais e variáveis CSS do tema escuro (Tailwind / shadcn)
-│   ├── layout.tsx                  # Layout raiz da aplicação + provedor de Toasts (<Toaster />)
-│   └── page.tsx                    # Página principal: Sidebar (Lado Esquerdo) + Palco #export-canvas (Lado Direito)
-├── components/
-│   ├── frames/
-│   │   └── MockupFrames.tsx        # Componentes das molduras (<IphoneFrame>, <MacbookFrame>, <BrowserFrame>, <NoneFrame>)
-│   └── ui/                         # Componentes reutilizáveis do shadcn/ui
-│       ├── button.tsx              # Botões de ação e exportação
-│       ├── label.tsx               # Rótulos de formulário
-│       ├── select.tsx              # Seletor de Sombra e Aspect Ratio
-│       ├── slider.tsx              # Sliders de Padding, BorderRadius e Tilt 3D
-│       ├── tabs.tsx                # Abas de navegação (Moldura & Fundo / Ajustes / Sólido & Gradiente)
-│       ├── toggle-group.tsx        # Grupo de seleção rápida de molduras
-│       └── toggle.tsx              # Base de estilização dos botões de alternância
-├── lib/
-│   └── utils.ts                    # Função utilitária cn() para combinação de classes Tailwind
-├── store/
-│   └── useMockupStore.ts           # Store Zustand (image, frame, background, padding, shadow, borderRadius, tilt, actions)
-├── .gitignore                      # Arquivos e pastas ignorados pelo Git (node_modules, .next, .env, caches)
-├── components.json                 # Configuração do shadcn/ui
-├── next.config.mjs                 # Configuração do Next.js 14
-├── package.json                    # Dependências e scripts npm
-├── postcss.config.mjs              # Configuração do PostCSS / Autoprefixer
-├── README.md                       # Documentação do projeto
-├── tailwind.config.ts              # Configuração de temas e plugins do Tailwind CSS
-└── tsconfig.json                   # Configuração do compilador TypeScript e alias (@/*)
+projeto_NextJs/                     # Raiz do repositório Git
+├── MockupSnap/                     # <-- Root Directory para selecionar na Vercel
+│   ├── public/
+│   │   └── favicon.svg             # Ícone estático da aplicação
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── globals.css         # Estilos globais e variáveis CSS do tema escuro (Tailwind / shadcn)
+│   │   │   ├── layout.tsx          # Layout raiz da aplicação + provedor de Toasts (<Toaster />)
+│   │   │   └── page.tsx            # Página principal: Sidebar (Lado Esquerdo) + Palco #export-canvas (Lado Direito)
+│   │   ├── components/
+│   │   │   ├── frames/
+│   │   │   │   └── MockupFrames.tsx # Componentes das molduras (<IphoneFrame>, <MacbookFrame>, <BrowserFrame>, <NoneFrame>)
+│   │   │   └── ui/                 # Componentes reutilizáveis do shadcn/ui
+│   │   │       ├── button.tsx
+│   │   │       ├── label.tsx
+│   │   │       ├── select.tsx
+│   │   │       ├── slider.tsx
+│   │   │       ├── tabs.tsx
+│   │   │       ├── toggle-group.tsx
+│   │   │       └── toggle.tsx
+│   │   ├── lib/
+│   │   │   └── utils.ts            # Função utilitária cn() para combinação de classes Tailwind
+│   │   └── store/
+│   │       └── useMockupStore.ts   # Store Zustand (image, frame, background, padding, shadow, borderRadius, tilt, actions)
+│   ├── .eslintrc.json              # Configuração do ESLint para Next.js / Vercel Build
+│   ├── components.json             # Configuração do shadcn/ui
+│   ├── next.config.mjs             # Configuração do Next.js 14
+│   ├── package-lock.json           # Lockfile de dependências
+│   ├── package.json                # Dependências e scripts npm
+│   ├── postcss.config.mjs          # Configuração do PostCSS / Autoprefixer
+│   ├── tailwind.config.ts          # Configuração de temas e plugins do Tailwind CSS
+│   └── tsconfig.json               # Configuração do compilador TypeScript e alias (@/* -> ./src/*)
+├── .gitignore                      # Arquivos e pastas ignorados pelo Git
+└── README.md                       # Documentação do projeto
 ```
 
 ---
 
 ## 🚀 Como Rodar o Projeto Localmente
 
-1. **Acesse a pasta do projeto:**
+1. **Acesse a pasta do projeto (`Root Directory`):**
    ```bash
    cd MockupSnap
    ```
@@ -97,3 +103,13 @@ MockupSnap/
 
 4. **Abra no navegador:**
    Acesse [http://localhost:3000](http://localhost:3000).
+
+---
+
+## ▲ Deploy na Vercel
+
+1. Suba as alterações para o seu repositório GitHub (`git push`).
+2. Acesse a [Vercel](https://vercel.com/) e clique em **Add New... → Project**.
+3. Importe o repositório `projeto_NextJs`.
+4. Na opção **Root Directory**, clique em **Edit** e selecione a pasta **`MockupSnap`**.
+5. Mantenha o **Framework Preset** como `Next.js` e clique em **Deploy**.
